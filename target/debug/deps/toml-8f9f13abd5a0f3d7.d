@@ -1,0 +1,13 @@
+/Users/trignomtry/dev/chat/target/debug/deps/libtoml-8f9f13abd5a0f3d7.rmeta: /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/lib.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/map.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/value.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/de.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/ser.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/macros.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/edit.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/fmt.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/table.rs
+
+/Users/trignomtry/dev/chat/target/debug/deps/toml-8f9f13abd5a0f3d7.d: /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/lib.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/map.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/value.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/de.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/ser.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/macros.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/edit.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/fmt.rs /Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/table.rs
+
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/lib.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/map.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/value.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/de.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/ser.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/macros.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/edit.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/fmt.rs:
+/Users/trignomtry/.cargo/registry/src/index.crates.io-6f17d22bba15001f/toml-0.8.10/src/table.rs:

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WorkChat</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/script.js" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <main>
+            <!--WorkFlow Timer-->
+            <div class="workflow-timer" id="workflow">
+              <div id="time">25:00</div>
+              <div id="controls">
+                  <button id="startPause" onclick="startPauseTimer()">Start Focus</button>
+                  <button id="reset" onclick="resetTimer()">Reset Focus</button>
+                  <button id="add-task-btn">Add Task</button>
+              </div>
+            </div>
+            <div id="task-container"></div>
+
+      
+
+      <div id="content" class="chat-container">
+        <div id="sidebar">
+          <div id="status" class="pending"></div>
+  
+          <div id="room-list">
+            <template id="room">
+              <button class="room"></button>
+            </template>
+          </div>
+  
+          <form id="new-room">
+            <input type="text" name="name" id="name" autocomplete="off"
+                placeholder="new room..." maxlength="29"></input>
+            <button type="submit">+</button>
+          </form>
+        </div>
+
+        <div id="messages" class="messages-container">
+          <template id="message">
+            <div class="message">
+              <span class="username"></span>
+              <span class="text"></span>
+            </div>
+          </template>
+        </div>
+
+        <form id="new-message">
+          <input type="text" name="username" id="username" maxlength="19"
+            placeholder="Enter a username..." autocomplete="off">
+          <input type="text" name="message" class="message-input" id="message" autocomplete="off"
+              placeholder="Send a message..." autofocus>
+          <button type="submit" id="send">Send</button>
+        </form>
+      </div>
+      <div class="calendar" id="calendar">
+        <div class="calendar__picture">
+          <h2 id="fulldate">Cannot get Date</h2>
+        </div>
+      </div>
+      
+
+
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  $(document).ready(function () {
+    // Make the messages div draggable
+    $("#content").draggable();
+    $("#calendar").draggable();
+    $("#workflow").draggable();
+    $("#task-container").draggable();
+  });
+</script>
+    <script class="workflow-code">
+
+              let timer;
+              let isPaused = true;
+              let minutes = 25;
+              let seconds = 0;
+
+              function startPauseTimer() {
+                  if (isPaused) {
+                      timer = setInterval(updateTimer, 1000);
+                      document.getElementById('startPause').textContent = 'Pause Focus';
+                  } else {
+                      clearInterval(timer);
+                      document.getElementById('startPause').textContent = 'Start Focus';
+                  }
+                  isPaused = !isPaused;
+              }
+
+              function resetTimer() {
+                  clearInterval(timer);
+                  isPaused = true;
+                  minutes = 25;
+                  seconds = 0;
+                  updateTimerDisplay();
+                  document.getElementById('startPause').textContent = 'Start Focus';
+              }
+
+              function updateTimer() {
+                  if (minutes === 0 && seconds === 0) {
+                      clearInterval(timer);
+                      alert('Focus completed! Take a break.');
+                      resetTimer();
+                      return;
+                  }
+
+                  if (seconds === 0) {
+                      minutes--;
+                      seconds = 59;
+                  } else {
+                      seconds--;
+                  }
+
+                  updateTimerDisplay();
+              }
+
+              function updateTimerDisplay() {
+                  const timerDisplay = document.getElementById('time');
+                  timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+              }
+
+      //TASKS API
+      //
+      //
+      //
+      //
+      //
+      var tasks = [];
+
+      const addTaskBtn = document.getElementById("add-task-btn");
+      addTaskBtn.addEventListener("click", () => addTask());
+
+      // Retrieve tasks from local storage
+      tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      renderTasks();
+
+      function saveTasks() {
+          // Store tasks in local storage
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      function renderTask(taskNum) {
+          const taskRow = document.createElement("div");
+
+          const text = document.createElement("input");
+          text.type = "text";
+          text.placeholder = "Enter a task...";
+          text.value = tasks[taskNum];
+          text.className = "task-input";
+          text.addEventListener("keyup", () => {
+              tasks[taskNum] = text.value;
+              saveTasks();
+          });
+
+          const deleteBtn = document.createElement("input");
+          deleteBtn.type = "button";
+          deleteBtn.value = "X";
+          deleteBtn.className = "task-delete";
+          deleteBtn.addEventListener("click", () => {
+              deleteTask(taskNum);
+          });
+
+          taskRow.appendChild(text);
+          taskRow.appendChild(deleteBtn);
+
+          const taskContainer = document.getElementById("task-container");
+          taskContainer.appendChild(taskRow);
+      }
+
+      function addTask() {
+          const taskNum = tasks.length;
+          tasks.push("");
+          renderTask(taskNum);
+          saveTasks();
+      }
+
+      function deleteTask(taskNum) {
+          tasks.splice(taskNum, 1);
+          renderTasks();
+          saveTasks();
+      }
+
+      function renderTasks() {
+          const taskContainer = document.getElementById("task-container");
+          taskContainer.innerHTML = ""; // Clear the container before rendering tasks
+          tasks.forEach((taskText, taskNum) => {
+              renderTask(taskNum);
+          });
+      }
+
+
+    </script>
+  </body>
+</html>
