@@ -215,14 +215,9 @@ fetch('./messages.json')
   .then(response => response.json())
   .then(data => {
     for(var i = 0; i < data.length; i++){
-      addMessage(data[i].room, data[i].username, data[i].message, true);
+      addMessage(data[i].room, data[i].username, data[i].message, false);
     }
   });
-
-
-
-
-
 
 
 

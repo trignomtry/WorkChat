@@ -6,7 +6,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-rocket = version = "0.5.0"
+rocket = { version = "0.5.0", features = ["json"] }
 serde_json = "1.0"
 
 [dev-dependencies]
