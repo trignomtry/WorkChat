@@ -8,10 +8,11 @@ let roomTemplate = document.getElementById("room");
 let messageTemplate = document.getElementById("message");
 
 let messageField = newMessageForm.querySelector("#message");
-let usernameField = newMessageForm.querySelector("#username");
 let roomNameField = newRoomForm.querySelector("#name");
 
-
+let registerUsername =  document.getElementById("register-username");
+let registerButton = document.getElementById("register-button");
+let registerDialog = document.getElementById("register");
 
 var STATE = {
   room: "lobby",
@@ -77,8 +78,9 @@ function changeRoom(name) {
 // Add `message` from `username` to `room`. If `push`, then actually store the
 // message. If the current room is `room`, render the message.
 function addMessage(room, username, message, push = false) {
+  let gusername = localStorage.getItem("username");
   if (push) {
-    STATE[room].push({ username, message });
+    STATE[room].push({ gusername, message });
   }
 
   if (STATE.room == room) {
@@ -146,7 +148,7 @@ const months = [
   "December",
 ];
 const fullDate =
-  d.getDate() + ", " + months[d.getMonth()] + ", " + d.getFullYear();
+months[d.getMonth()] +" "+  d.getDate() + ", " + d.getFullYear();
 const labeld = document.getElementById("fulldate");
 labeld.innerText = fullDate;
 
@@ -171,7 +173,7 @@ function init() {
 
     const room = STATE.room;
     const message = messageField.value;
-    const username = usernameField.value || "guest";
+    const username = localStorage.getItem("username") || "guest";
     if (!message || !username) return;
 
     if (STATE.connected) {
@@ -200,12 +202,31 @@ function init() {
   // Subscribe to server-sent events.
   subscribe("/events");
 
+  let usrname = localStorage.getItem("username");
+  if(usrname){
 
-
-//done
-
-//Adding workflow later
-
+  } else{
+    document.querySelector("main").style.display = "none";
+    registerDialog.open = "true";
+    registerButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      registerDialog.style.display = "none";
+      localStorage.setItem("username", registerUsername.value);
+      if(registerUsername.value){
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      } else {
+        alert("Please enter a username")
+        location.reload();
+      }
+    });
+  }
 
 
 }

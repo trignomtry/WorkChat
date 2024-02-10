@@ -8,6 +8,16 @@
     <script type="module" src="/script.js" charset="utf-8" defer></script>
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+
+    <dialog id="register" closed> 
+      <h1 style="font-size: 50px; text-align: center;">WorkChat</h1>
+      <h1>Register</h1>
+      <p>Before you begin chatting, please enter a username:</p>
+      <input placeholder="Username" id="register-username">
+      <button id="register-button">Let's go!</button>
+    </dialog>
     <main>
             <!--WorkFlow Timer-->
             <div class="workflow-timer" id="workflow">
@@ -20,7 +30,7 @@
             </div>
             <div id="task-container"></div>
 
-      
+
 
       <div id="content" class="chat-container">
         <div id="sidebar">
@@ -49,8 +59,6 @@
         </div>
 
         <form id="new-message">
-          <input type="text" name="username" id="username" maxlength="19"
-            placeholder="Enter a username..." autocomplete="off">
           <input type="text" name="message" class="message-input" id="message" autocomplete="off"
               placeholder="Send a message..." autofocus>
           <button type="submit" id="send">Send</button>

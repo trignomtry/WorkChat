@@ -34,15 +34,18 @@ body {
   }
   
   .messages-container {
-	background-color: #fff;
-	border-radius: 20px;
+	background-image: transparent;
 	overflow-x: hidden;
 	overflow-y: auto;
 	height: 300px;
 	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column-reverse;
+	border-image: linear-gradient(to right, #ce5cfb, #1c638e) 2;
+	border-radius: 20px;	
+	border-style: solid;
   }
+
   
   .workflow-timer{
 	position: absolute;
