@@ -214,7 +214,7 @@ function init() {
       localStorage.setItem("username", registerUsername.value);
       if(registerUsername.value){
         confetti({
-          particleCount: 100,
+          particleCount: 500,
           spread: 70,
           origin: { y: 0.6 },
         });

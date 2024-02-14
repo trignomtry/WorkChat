@@ -3,5 +3,10 @@
     "room": "lobby",
     "username": "trig",
     "message": "wow"
+  },
+  {
+    "room": "lobby",
+    "username": "trig",
+    "message": "hi!"
   }
 ]
